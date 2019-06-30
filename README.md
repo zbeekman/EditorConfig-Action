@@ -42,5 +42,5 @@ unprotected branch on behalf of the user, if given permission.
 [EditorConfig]: https://editorconfig.org
 [eclint]: https://github.com/jedmao/eclint
 [@jedmao]: https://github.com/jedmao
-[under an MIT license]: [under an MIT license]
+[under an MIT license]: https://github.com/jedmao/eclint/blob/master/LICENSE
 [`.editorconfig`]: https://github.com/zbeekman/EditorConfig-Action/blob/master/.editorconfig
