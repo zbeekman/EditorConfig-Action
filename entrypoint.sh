@@ -61,7 +61,7 @@ getChangedFiles() {
     have_first=true
   fi
   if [ -n "${GITHUB_SHA}" ] && [ "$GITHUB_SHA" != "null" ]; then
-    have_last=treu
+    have_last=true
   fi
   if ! $DELETED ; then
     have_commits=true
