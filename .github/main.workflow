@@ -6,9 +6,9 @@ workflow "EditorConfig-Action" {
 
 action "EditorConfig Audit" {
   uses = "./"
-  secrets = ["GITHUB_TOKEN"]
+  #  secrets = ["GITHUB_TOKEN"] # WIll be needed for fixing errors
   env = {
-    EC_FIX = "false" # not yet implemented
+    EC_FIX_ERRORS = "false" # not yet implemented
     ALWAYS_LINT_ALL_FILES = "false"
   }
 }
