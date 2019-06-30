@@ -14,9 +14,9 @@ action "EditorConfig-Action" {
 
 workflow "ShellCheck Audit" {
   on = "push"
-  resolves = ["ShellCheck-Linter"]
+  resolves = ["ShellCheck-Linter-Action"]
 }
 
-action "ShellCheck-Linter" {
+action "ShellCheck-Linter-Action" {
   uses = "./ShellCheck-Linter/"
 }

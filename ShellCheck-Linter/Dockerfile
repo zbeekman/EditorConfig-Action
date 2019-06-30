@@ -1,6 +1,6 @@
 FROM koalaman/shellcheck-alpine:stable
 
-LABEL "com.github.actions.name"="ShellCheck-Linter"
+LABEL "com.github.actions.name"="ShellCheck-Linter-Action"
 LABEL "com.github.actions.description"="Lint all scripts in the current project with ShellCheck"
 LABEL "com.github.actions.icon"="terminal"
 LABEL "com.github.actions.color"="yellow"
