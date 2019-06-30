@@ -20,9 +20,8 @@ met:
 - We respond, indicating that the vulnerability has been resolved in the latest release
 - __45 days__ have passed since the initial report, *OR*, __14 days__ have passed since
   our last email communication about the vulnerability, *whichever is less*.
-  
+
   ## Changes to this Security Policy
-  
+
   Changes made to this security policy will take effect *no sooner than* __50 days__ after
   publication on the master branch of https://github.com/zbeekman/EditorConfig-Action.
-  
