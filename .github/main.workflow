@@ -1,5 +1,5 @@
 workflow "EditorConfig Audit" {
-  resolves = ["EditorConfig Audit"]
+  resolves = ["EditorConfig-Action"]
   on = "push"
 }
 
