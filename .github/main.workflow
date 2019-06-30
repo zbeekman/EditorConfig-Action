@@ -1,4 +1,3 @@
-
 workflow "EditorConfig-Action" {
   on = "push"
   resolves = ["EditorConfig Audit"]
@@ -11,4 +10,14 @@ action "EditorConfig Audit" {
     EC_FIX_ERRORS = "false" # not yet implemented
     ALWAYS_LINT_ALL_FILES = "false"
   }
+}
+
+workflow "ShellCheck" {
+  on = "push"
+  resolves = ["fearphage/shellcheck-action@1.0.0"]
+}
+
+action "fearphage/shellcheck-action@1.0.0" {
+  uses = "fearphage/shellcheck-action@1.0.0"
+  secrets = ["GITHUB_TOKEN"]
 }
