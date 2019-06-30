@@ -1,4 +1,4 @@
 .git
-node_modules
+.gitignore
 .github
-ShellCheck
+node_modules
