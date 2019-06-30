@@ -18,5 +18,6 @@ workflow "ShellCheck" {
 }
 
 action "Lint scripts with shellcheck" {
-  uses = "ludeeus/action-shellcheck@0.1.0"
+  uses = "docker://koalaman/shellcheck-alpine:stable"
+  runs = "./check-scripts.sh"
 }
