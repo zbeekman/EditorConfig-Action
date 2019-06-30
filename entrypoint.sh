@@ -70,7 +70,11 @@ getChangedFiles() {
     echo "We have a valid commit range..."
     CHANGED_FILES=()
     while IFS='' read -r line; do
-      CHANGED_FILES+=("$line")
+      if [ -f "$line" ] ; then
+        CHANGED_FILES+=("$line")
+      else
+        echo "File \`$line\` was moved or deleted."
+      fi
     done < <(git diff --name-only "${GITHUB_SHA}..${BEFORE_COMMIT}")
   elif $have_last && $have_commits ; then
     echo "Missing starting commit, new repo?"

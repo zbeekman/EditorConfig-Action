@@ -1,14 +1,22 @@
-
-workflow "EditorConfig-Action" {
+workflow "EditorConfig Audit" {
+  resolves = ["EditorConfig-Action"]
   on = "push"
-  resolves = ["EditorConfig Audit"]
 }
 
-action "EditorConfig Audit" {
+action "EditorConfig-Action" {
   uses = "./"
   #  secrets = ["GITHUB_TOKEN"] # WIll be needed for fixing errors
   env = {
     EC_FIX_ERRORS = "false" # not yet implemented
     ALWAYS_LINT_ALL_FILES = "false"
   }
+}
+
+workflow "ShellCheck Audit" {
+  on = "push"
+  resolves = ["ShellCheck-Linter"]
+}
+
+action "ShellCheck-Linter" {
+  uses = "./ShellCheck-Linter/"
 }
