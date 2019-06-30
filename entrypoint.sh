@@ -91,7 +91,7 @@ echo "eclint version: $(eclint --version)"
 configureGit
 echo "Looking for .editorconfig file in current directory or parents..."
 findInCwdOrParent .editorconfig
-echo "Determining number of commits in push and starting and ending SHAs..."
+echo "Determining commits starting and ending SHAs in push and if the branch was deleted..."
 getPushedCommitInfo
 echo "Determining changed files..."
 getChangedFiles
