@@ -14,10 +14,10 @@ action "EditorConfig Audit" {
 
 workflow "ShellCheck" {
   on = "push"
-  resolves = ["fearphage/shellcheck-action@1.0.0"]
+  resolves = ["fearphage/shellcheck-action@0.0.1-debug6"]
 }
 
-action "fearphage/shellcheck-action@1.0.0" {
+action "fearphage/shellcheck-action@0.0.1-debug6" {
   uses = "fearphage/shellcheck-action@1.0.0"
   secrets = ["GITHUB_TOKEN"]
 }
