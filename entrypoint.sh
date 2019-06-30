@@ -96,6 +96,12 @@ findInCwdOrParent .editorconfig
 if [[ "${ALWAYS_LINT_ALL_FILES:-false}" = [Tt]rue ]]; then
   lintAllFiles
 elif [ ${#CHANGED_FILES[@]} -gt 0 ]; then
+  echo ""
+  echo "Checking the following changed files for EditorConfig style violations:"
+  for f in ${CHANGED_FILES[@]}; do
+    echo "    $f"
+  done
+  echo ""
   if env eclint check "${CHANGED_FILES[@]}" ; then
     passECLint
   else
