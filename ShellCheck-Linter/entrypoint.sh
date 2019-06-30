@@ -4,11 +4,15 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+/bin/shellcheck --version
 echo "Looking for scripts the current project..."
-scripts=(find . -name '*.sh')
+scripts=()
+while IFS='' read -r line; do
+  scripts+=("$line")
+done < <(git ls-files '*.sh')
 echo "Found ${#scripts[@]} scripts."
 
-echo "Linting ${#scripts[@]}} scripts with ShellCheck..."
+echo "Linting ${#scripts[@]} scripts with ShellCheck..."
 /bin/shellcheck "${scripts[@]}"
 exit_code=$?
 
