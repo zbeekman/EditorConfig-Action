@@ -3,8 +3,7 @@
 set -o errexit
 set -o nounset
 
-PATH="$(yarn bin):$PATH"
-export PATH
+echo "PATH: $PATH"
 
 findEditorConfig() {
   _currdir="$PWD"
