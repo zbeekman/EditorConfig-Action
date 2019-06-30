@@ -1,9 +1,9 @@
-workflow "EditorConfig-Action" {
+workflow "EditorConfig Audit" {
   resolves = ["EditorConfig Audit"]
   on = "push"
 }
 
-action "EditorConfig Audit" {
+action "EditorConfig-Action" {
   uses = "./"
   #  secrets = ["GITHUB_TOKEN"] # WIll be needed for fixing errors
   env = {
@@ -12,12 +12,11 @@ action "EditorConfig Audit" {
   }
 }
 
-workflow "ShellCheck" {
+workflow "ShellCheck Audit" {
   on = "push"
-  resolves = ["Lint scripts with shellcheck"]
+  resolves = ["ShellCheck-Linter"]
 }
 
-action "Lint scripts with shellcheck" {
-  uses = "docker://koalaman/shellcheck-alpine:stable"
-  runs = "./check-scripts.sh"
+action "ShellCheck-Linter" {
+  uses = "./ShellCheck-Linter/"
 }
