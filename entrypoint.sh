@@ -26,12 +26,9 @@ getEventByPath() {
 }
 
 getPushedCommitInfo() {
-  jq -r . "${GITHUB_EVENT_PATH}"
   echo "Getting info about commits (if any) in push..."
-  NUM_COMMITS="$(getEventByPath '.size')"
-  echo "NUM_COMMITS=$NUM_COMMITS"
+  DELETED="$(getEventByPath '.deleted')"
   BEFORE_COMMIT="$(getEventByPath '.before')"
-  echo "BEFORE_COMMIT=$BEFORE_COMMIT"
 }
 
 failECLint() {
@@ -56,7 +53,6 @@ lintAllFiles() {
 getChangedFiles() {
   echo "Getting changed files in last push by ${GITHUB_ACTOR} to ${GITHUB_REPOSITORY}:${GITHUB_REF}..."
   echo "Pushed commit was: ${GITHUB_SHA}"
-  echo "Push includes ${NUM_COMMITS} commits."
   echo "Pushed commit range: ${BEFORE_COMMIT}..${GITHUB_SHA}"
   have_first=false
   have_last=false
@@ -67,7 +63,7 @@ getChangedFiles() {
   if [ -n "${GITHUB_SHA}" ] && [ "$GITHUB_SHA" != "null" ]; then
     have_last=treu
   fi
-  if [ "$NUM_COMMITS" -gt 0 ]; then
+  if ! $DELETED ; then
     have_commits=true
   fi
   if $have_first && $have_last ; then
