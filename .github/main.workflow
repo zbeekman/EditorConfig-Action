@@ -11,3 +11,15 @@ action "EditorConfig-Action" {
     ALWAYS_LINT_ALL_FILES = "false"
   }
 }
+
+workflow "ShellCheck Audit" {
+  on = "push"
+  resolves = ["ShellCheck-Lint-Action"]
+}
+
+action "ShellCheck-Lint-Action" {
+  uses = "zbeekman/ShellCheck-Lint-Actions@master"
+  env = {
+    ALWAYS_LINT_ALL_FILES = "true" # current default
+  }
+}
