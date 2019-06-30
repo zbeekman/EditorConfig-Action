@@ -92,13 +92,17 @@ echo "eclint version: $(eclint --version)"
 configureGit
 echo "Looking for .editorconfig file in current directory or parents..."
 findInCwdOrParent .editorconfig
+echo "Determining number of commits in push and starting and ending SHAs..."
+getPushedCommitInfo
+echo "Determining changed files..."
+getChangedFiles
 
 if [[ "${ALWAYS_LINT_ALL_FILES:-false}" = [Tt]rue ]]; then
   lintAllFiles
 elif [ ${#CHANGED_FILES[@]} -gt 0 ]; then
   echo ""
   echo "Checking the following changed files for EditorConfig style violations:"
-  for f in ${CHANGED_FILES[@]}; do
+  for f in "${CHANGED_FILES[@]}"; do
     echo "    $f"
   done
   echo ""
