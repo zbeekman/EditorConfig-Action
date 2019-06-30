@@ -13,17 +13,17 @@ To ensure your repository does not violate your project's [`.editorconfig`] file
 following workflow:
 
 ```workflow
-workflow "EditorConfig-Action" {
+workflow "EditorConfig Audit" {
   on = "push"
-  resolves = ["EditorConfig Audit"]
+  resolves = ["EditorConfig-Action"]
 }
 
-action "EditorConfig Audit" {
-  uses = "./"
-  secrets = ["GITHUB_TOKEN"] # Will be needed for fixing errors
+action "EditorConfig-Action" {
+  uses = "zbeekman/EditorConfig-Actions@v1.0.0"
+  # secrets = ["GITHUB_TOKEN"] # Will be needed for fixing errors
   env = {
     EC_FIX_ERROR = "false" # not yet implemented
-    ALWAYS_LINT_ALL_FILES = "false"
+    ALWAYS_LINT_ALL_FILES = "false" # This is the default
   }
 }
 ```
