@@ -1,6 +1,6 @@
 workflow "EditorConfig-Action" {
-  on = "push"
   resolves = ["EditorConfig Audit"]
+  on = "push"
 }
 
 action "EditorConfig Audit" {
@@ -13,10 +13,10 @@ action "EditorConfig Audit" {
 }
 
 workflow "ShellCheck" {
-  resolves = ["fearphage/shellcheck-action@0.0.1-debug6"]
   on = "push"
+  resolves = ["Lint scripts with shellcheck"]
 }
 
-action "fearphage/shellcheck-action@0.0.1-debug6" {
+action "Lint scripts with shellcheck" {
   uses = "ludeeus/action-shellcheck@0.1.0"
 }
