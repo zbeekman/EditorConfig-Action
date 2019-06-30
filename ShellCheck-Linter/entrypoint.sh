@@ -15,7 +15,7 @@ echo "Enumerating files tracked by git..."
 # shellcheck disable=SC2207
 gitfiles=($(git ls-files))
 
-echo "Finding script in ${#gitfiles[@]} project files..."
+echo "Finding scripts in ${#gitfiles[@]} project files..."
 scripts=()
 time {
   for f in "${gitfiles[@]}"; do
