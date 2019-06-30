@@ -9,7 +9,7 @@ LABEL "repository"="https://github.com/zbeekman/EditorConfig-Action"
 LABEL "homepage"="https://github.com/zbeekman/EditorConfig-Action#README.md"
 LABEL "maintainer"="Izaak \"Zaak\" Beekman <contact@izaakbeekman.com>"
 
-RUN apk add --no-cache git jq yarn && yarn --version
+RUN apk add --no-cache bash git jq yarn && yarn --version
 ENV NODE_MODULES_DIR "${HOME}/node_modules"
 ENV PATH "${HOME}/node_modules/.bin:$PATH"
 	COPY package.json yarn.lock ./
