@@ -26,9 +26,12 @@ getEventByPath() {
 }
 
 getPushedCommitInfo() {
+  jq -r . "${GITHUB_EVENT_PATH}"
   echo "Getting info about commits (if any) in push..."
   NUM_COMMITS="$(getEventByPath '.size')"
+  echo "NUM_COMMITS=$NUM_COMMITS"
   BEFORE_COMMIT="$(getEventByPath '.before')"
+  echo "BEFORE_COMMIT=$BEFORE_COMMIT"
 }
 
 failECLint() {
