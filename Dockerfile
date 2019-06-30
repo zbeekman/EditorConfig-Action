@@ -2,7 +2,7 @@ FROM node:12-alpine
 
 LABEL "com.github.actions.name"="EditorConfig Checker and Fixer"
 LABEL "com.github.actions.description"="Check and/or fix pushed files against `.editorconfig` style specification"
-LABEL "com.github.actions.icon"="zoom-in"
+LABEL "com.github.actions.icon"="eye"
 LABEL "com.github.actions.color"="purple"
 
 LABEL "repository"="https://github.com/zbeekman/EditorConfig-Action"
