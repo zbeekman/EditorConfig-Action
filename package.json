@@ -1,0 +1,28 @@
+{
+  "name": "editorconfig-action",
+  "version": "1.0.0",
+  "description": "Check and/or fix pushed files against `.editorconfig` style specificatio",
+  "main": "entrypoint.sh",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zbeekman/EditorConfig-Action.git"
+  },
+  "keywords": [
+    "editorconfig",
+    "lint",
+    "githubaction"
+  ],
+  "author": "Izaak \"Zaak\" Beekman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zbeekman/EditorConfig-Action/issues"
+  },
+  "homepage": "https://github.com/zbeekman/EditorConfig-Action#readme",
+  "dependencies": {
+    "eclint": "^2.8.1"
+  }
+}

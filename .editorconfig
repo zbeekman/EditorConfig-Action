@@ -14,7 +14,7 @@ max_line_length = 132
 [Dockerfile]
 indent_style = tab
 
-[{package.json,yarn.lock}]
+[{package.json,package-lock.json}]
 max_line_length = off
 
 [*.md]
