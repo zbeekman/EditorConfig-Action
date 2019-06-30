@@ -1,4 +1,4 @@
-FROM node:koalaman/shellcheck-alpine:stable
+FROM koalaman/shellcheck-alpine:stable
 
 LABEL "com.github.actions.name"="ShellCheck-Linter"
 LABEL "com.github.actions.description"="Lint all scripts in the current project with ShellCheck"
