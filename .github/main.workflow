@@ -11,12 +11,3 @@ action "EditorConfig-Action" {
     ALWAYS_LINT_ALL_FILES = "false"
   }
 }
-
-workflow "ShellCheck Audit" {
-  on = "push"
-  resolves = ["ShellCheck-Linter-Action"]
-}
-
-action "ShellCheck-Linter-Action" {
-  uses = "./ShellCheck-Linter/"
-}
