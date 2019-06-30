@@ -5,11 +5,27 @@ set -o nounset
 set -o pipefail
 
 /bin/shellcheck --version
-echo "Looking for scripts the current project..."
+
+echo "Configuring git..."
+# This should be the default but it's important that it's set correctly
+git config --global core.quotePath true
+
+echo "Enumerating files tracked by git..."
+# We know that core.quotePath is true
+# shellcheck disable=SC2207
+gitfiles=($(git ls-files))
+
+echo "Finding script in ${#gitfiles[@]} project files..."
 scripts=()
-while IFS='' read -r line; do
-  scripts+=("$line")
-done < <(git ls-files '*.sh')
+time {
+  for f in "${gitfiles[@]}"; do
+    # If not a file ending in .sh or w/o a file extension cycle
+    [[ "$f" =~ \.sh|/[^./]+$ ]] || continue
+    file --mime -b "$f" | grep 'shellscript' > /dev/null || continue
+    scripts+=("$f")
+  done
+}
+
 echo "Found ${#scripts[@]} scripts."
 
 echo "Linting ${#scripts[@]} scripts with ShellCheck..."

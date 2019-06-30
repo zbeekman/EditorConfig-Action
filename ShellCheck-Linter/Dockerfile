@@ -9,7 +9,7 @@ LABEL "repository"="https://github.com/zbeekman/EditorConfig-Action"
 LABEL "homepage"="https://github.com/zbeekman/EditorConfig-Action#README.md"
 LABEL "maintainer"="Izaak \"Zaak\" Beekman <contact@izaakbeekman.com>"
 
-RUN apk add --no-cache bash git jq ca-certificates
+RUN apk add --no-cache bash file git jq ca-certificates
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
