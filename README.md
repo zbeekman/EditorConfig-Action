@@ -81,16 +81,16 @@ Features currently in development or being considered for addition include:
   - [ ] Ability to pass search patterns to `git ls-files` for enumerating files to check
   - [ ] Ability to override project `.editorconfig` or use without an `.editorconfig` via `eclint`'s property override
       flags
-- [ ] Pass patterns of files to ignore
+  - [ ] Pass patterns of files to ignore
 
 ## [EditorConfig] Resources
 
-  - [EditorConfig] website :earth_americas: : https://editorconfig.org
-  - [EditorConfig] wiki :clipboard: : https://github.com/editorconfig/wiki
-  - [EditorConfig] GitHub :octocat: : https://github.com/editorconfig/wiki
-  - [EditorConfig] wiki :memo: : https://github.com/editorconfig/wiki
-  - [EditorConfig] with your editor :pencil2: : https://editorconfig.org/#download
-  - [EditorConfig] on twitter :bird: : https://twitter.com/EditorConfig
+  - :earth_americas: [EditorConfig] website : https://editorconfig.org
+  - :clipboard: [EditorConfig] wiki : https://github.com/editorconfig/wiki
+  - :octocat: [EditorConfig] GitHub : https://github.com/editorconfig/wiki
+  - :memo: [EditorConfig] wiki : https://github.com/editorconfig/wiki
+  - :pencil2: [EditorConfig] with your editor : https://editorconfig.org/#download
+  - :bird: [EditorConfig] on twitter : https://twitter.com/EditorConfig
 
 ## Other GitHub Actions from [@zbeekman]
 
