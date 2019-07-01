@@ -128,7 +128,8 @@ Features currently in development or being considered for addition include:
 [@zbeekman]: https://github.com/zbeekman
 [under an MIT license]: https://github.com/jedmao/eclint/blob/master/LICENSE
 [`.editorconfig`]: https://github.com/zbeekman/EditorConfig-Action/blob/master/.editorconfig
-[ShellCheck-Linter-Action]: https://github.com/marketplace/actions/shellcheck-linter-action
+
+   [ShellCheck-Linter-Action]: https://github.com/marketplace/actions/shellcheck-linter-action
 
 <!--
 Badges and local links
@@ -148,5 +149,5 @@ https://img.shields.io/github/package-json/dependency-version/zbeekman/EditorCon
 [twitter]: https://twitter.com/intent/follow?screen_name=zbeekman
 [star badge]: https://img.shields.io/github/stars/zbeekman/EditorConfig-Action.svg?style=social
 [star]: https://github.com/zbeekman/EditorConfig-Action
- [gh follow]: https://img.shields.io/github/followers/zbeekman.svg?style=social
+[gh follow]: https://img.shields.io/github/followers/zbeekman.svg?style=social
 [gh profile]: https://github.com/zbeekman
