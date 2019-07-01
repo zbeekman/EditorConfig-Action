@@ -72,11 +72,12 @@ lintAllFiles() {
     git fetch origin "${FULL_PR_REF}" || true
     if git checkout "${PULL_REF}" ; then
       echo "Checkout of ${PULL_REF} succeeded."
-      git status
-      git branch
     else
-      echo "Checkout of ${FULL_PR_REF} from origin failed... attempting to continue anyway."
+      echo "Checkout of ${PULL_REF} from origin failed... attempting to continue anyway."
     fi
+    git status
+    git branch
+    git show-ref
   fi
   # shellcheck disable=SC2046
   if env eclint check $(git ls-files) ; then
