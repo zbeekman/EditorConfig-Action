@@ -37,7 +37,7 @@ various editors and IDEs. The EditorConfig project consists of a file format for
 of text editor plugins that enable editors to read the file format and adhere to defined styles. EditorConfig files are
 easily readable and they work nicely with version control systems.
 
-Checkout this projects's `.editorconfig` file [here][`.editorconfig`]. However, to use this GitHub Action, your project
+Checkout this project's `.editorconfig` file [here][`.editorconfig`]. However, to use this GitHub Action, your project
 should define your own `.editorconfig`.
 
 This project uses [eclint] by Jed Mao ([@jedmao]) to lint your project. [eclint] is also
