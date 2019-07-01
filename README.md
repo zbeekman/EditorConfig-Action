@@ -19,7 +19,7 @@ workflow "EditorConfig Audit" {
 }
 
 action "EditorConfig-Action" {
-  uses = "zbeekman/EditorConfig-Actions@v1.0.0"
+  uses = "zbeekman/EditorConfig-Action@v1.0.0"
   # secrets = ["GITHUB_TOKEN"] # Will be needed for fixing errors
   env = {
     EC_FIX_ERROR = "false" # not yet implemented
