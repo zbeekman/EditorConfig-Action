@@ -10,7 +10,7 @@
 
 </div>
 
-:mag_right: A GitHub Action to check, enforce & fix EditorConfig style violations
+:mag_right: A GitHub Action to check, enforce & fix [EditorConfig] style violations
 
 <details><summary><b>Table of Contents</b></summary>
 <p>
@@ -86,10 +86,9 @@ Features currently in development or being considered for addition include:
 ## [EditorConfig] Resources
 
   - :earth_americas: [EditorConfig] website : https://editorconfig.org
-  - :clipboard: [EditorConfig] wiki : https://github.com/editorconfig/wiki
-  - :octocat: [EditorConfig] GitHub : https://github.com/editorconfig/wiki
   - :memo: [EditorConfig] wiki : https://github.com/editorconfig/wiki
   - :pencil2: [EditorConfig] with your editor : https://editorconfig.org/#download
+  - :octocat: [EditorConfig] GitHub : https://github.com/editorconfig/wiki
   - :bird: [EditorConfig] on twitter : https://twitter.com/EditorConfig
 
 ## Other GitHub Actions from [@zbeekman]
