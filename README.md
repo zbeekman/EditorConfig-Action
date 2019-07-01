@@ -10,7 +10,7 @@
 
 </div>
 
-:mag_right: A GitHub Action to check, enforce & fix EditorConfig style violations
+:mag_right: A GitHub Action to check, enforce & fix [EditorConfig] style violations
 
 <details><summary><b>Table of Contents</b></summary>
 <p>
@@ -85,11 +85,14 @@ Features currently in development or being considered for addition include:
 
 ## [EditorConfig] Resources
 
+  - :book: [eclint] usage : https://github.com/jedmao/eclint#features
   - :earth_americas: [EditorConfig] website : https://editorconfig.org
-  - :clipboard: [EditorConfig] wiki : https://github.com/editorconfig/wiki
-  - :octocat: [EditorConfig] GitHub : https://github.com/editorconfig/wiki
-  - :memo: [EditorConfig] wiki : https://github.com/editorconfig/wiki
+  - :memo: [EditorConfig] wiki : https://github.com/editorconfig/editorconfig/wiki
+  - :card_file_box: [EditorConfig] properties :
+    https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
+  - :thinking: [EditorConfig] FAQs : https://github.com/editorconfig/editorconfig/wiki/FAQ
   - :pencil2: [EditorConfig] with your editor : https://editorconfig.org/#download
+  - :octocat: [EditorConfig] GitHub : https://github.com/editorconfig/editorconfig
   - :bird: [EditorConfig] on twitter : https://twitter.com/EditorConfig
 
 ## Other GitHub Actions from [@zbeekman]
