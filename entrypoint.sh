@@ -28,7 +28,20 @@ getEventByPath() {
 getPushedCommitInfo() {
   echo "Getting info about commits (if any) in push..."
   DELETED="$(getEventByPath '.deleted')"
-  BEFORE_COMMIT="$(getEventByPath '.before')"
+  HEAD_COMMIT="$GITHUB_SHA"
+  BASE_COMMIT="$(getEventByPath '.before')"
+}
+
+getPullRequestCommitInfo() {
+  echo "Getting info about commits in pull request..."
+  DELETED=false
+  HEAD_COMMIT="$(getEventByPath '.pull_request.head.sha')"
+  BASE_COMMIT="$(getEventByPath '.pull_request.base.sha')"
+  PULL_ID="$(getEventByPath '.pull_request.number')"
+  PULL_REF="$(getEventByPath '.pull_request.head.ref')"
+  FULL_PR_REF="pull/${PULL_ID}/head:${PULL_REF}"
+  echo "Fetching commits from PR at ${FULL_PR_REF}."
+  git fetch origin "${FULL_PR_REF}" || true
 }
 
 failECLint() {
@@ -42,6 +55,19 @@ passECLint() {
 
 lintAllFiles() {
   echo "Checking files for EditorConfig style violations"
+  if [[ "${GITHUB_EVENT_NAME}" = pull_request ]] ; then
+    echo "Current git status:"
+    git status
+    echo "Testing Pull Request. Attempting checkout of PR branch..."
+    git fetch origin "${FULL_PR_REF}" || true
+    if git checkout "${PULL_REF}" ; then
+      echo "Checkout of ${PULL_REF} succeeded."
+      git status
+      git branch
+    else
+      echo "Checkout of ${FULL_PR_REF} from origin failed... attempting to continue anyway."
+    fi
+  fi
   # shellcheck disable=SC2046
   if env eclint check $(git ls-files) ; then
     passECLint
@@ -52,15 +78,15 @@ lintAllFiles() {
 
 getChangedFiles() {
   echo "Getting changed files in last push by ${GITHUB_ACTOR} to ${GITHUB_REPOSITORY}:${GITHUB_REF}..."
-  echo "Pushed commit was: ${GITHUB_SHA}"
-  echo "Pushed commit range: ${BEFORE_COMMIT}..${GITHUB_SHA}"
+  echo "Pushed commit was: ${HEAD_COMMIT}"
+  echo "Pushed commit range: ${BASE_COMMIT}..${HEAD_COMMIT}"
   have_first=false
   have_last=false
   have_commits=false
-  if [ -n "${BEFORE_COMMIT}" ] && [ "${BEFORE_COMMIT}" != "null" ]; then
+  if [ -n "${BASE_COMMIT}" ] && [ "${BASE_COMMIT}" != "null" ]; then
     have_first=true
   fi
-  if [ -n "${GITHUB_SHA}" ] && [ "$GITHUB_SHA" != "null" ]; then
+  if [ -n "${HEAD_COMMIT}" ] && [ "$HEAD_COMMIT" != "null" ]; then
     have_last=true
   fi
   if ! $DELETED ; then
@@ -75,7 +101,7 @@ getChangedFiles() {
       else
         echo "File \`$line\` was moved or deleted."
       fi
-    done < <(git diff --name-only "${GITHUB_SHA}..${BEFORE_COMMIT}")
+    done < <(git diff --name-only "${HEAD_COMMIT}..${BASE_COMMIT}")
   elif $have_last && $have_commits ; then
     echo "Missing starting commit, new repo?"
     # We know that core.quotePath is true
@@ -88,15 +114,29 @@ getChangedFiles() {
     echo "Unknown error: Can't determine changed files from Git!" >&2
     exit 78
   fi
+  if [[ "${GITHUB_EVENT_NAME}" = pull_request ]]; then
+    echo "The following files have been touched by this pull request:"
+    for f in "${CHANGED_FILES[@]}"; do
+      echo "  - ${f}"
+    done
+  fi
 }
 
 # Start main
 echo "eclint version: $(eclint --version)"
 configureGit
+
 echo "Looking for .editorconfig file in current directory or parents..."
 findInCwdOrParent .editorconfig
-echo "Determining commits starting and ending SHAs in push and if the branch was deleted..."
-getPushedCommitInfo
+
+if [[ "${GITHUB_EVENT_NAME}" = pull_request ]] ; then
+  echo "Determining HEAD and BASE commit SHAs in current pull request..."
+  getPullRequestCommitInfo
+else
+  echo "Determining commits starting and ending SHAs in push and if the branch was deleted..."
+  getPushedCommitInfo
+fi
+
 echo "Determining changed files..."
 getChangedFiles
 
@@ -116,6 +156,6 @@ elif [ ${#CHANGED_FILES[@]} -gt 0 ]; then
   fi
 else
   echo "No files changed in commits:"
-  echo "    ${BEFORE_COMMIT}..${GITHUB_SHA}"
+  echo "    ${BASE_COMMIT}..${HEAD_COMMIT}"
   exit 0
 fi

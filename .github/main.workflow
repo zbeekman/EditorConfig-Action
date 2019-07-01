@@ -5,10 +5,21 @@ workflow "EditorConfig Audit" {
 
 action "EditorConfig-Action" {
   uses = "./"
-  #  secrets = ["GITHUB_TOKEN"] # WIll be needed for fixing errors
   env = {
     EC_FIX_ERRORS = "false" # not yet implemented
     ALWAYS_LINT_ALL_FILES = "true"
+  }
+}
+
+workflow "EditorConfig PR" {
+  resolves = ["EditorConfig Audit PR"]
+  on = "pull_request"
+}
+
+action "EditorConfig Audit PR" {
+  uses = "./"
+  env = {
+    ALWAYS_LINT_ALL_FILES = "false"
   }
 }
 
