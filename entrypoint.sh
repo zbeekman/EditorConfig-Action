@@ -16,7 +16,7 @@ set -o nounset
 findInCwdOrParent() {
   _currdir="$PWD"
   if [ -f "$1" ]; then
-    printf 'EditorConfig file found: %s\n' "${PWD%/}/$1"
+       printf 'EditorConfig file found: %s\n' "${PWD%/}/$1"
   elif [ "$PWD" = / ]; then
     echo "No $1 file found in ${_currdir} or parents!" >&2
     exit 78
