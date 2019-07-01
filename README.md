@@ -2,10 +2,10 @@
 
 # EditorConfig-Action
 
-[![action on GH marketplace][marketplace badge]][marketplace] |
-[![gpg on keybase.io][keybase badge]][keybase] |
-[![GitHub release][release badge]][latest release] |
-[![package.json deps][npm dep badge]][eclint npm] |
+[![action on GH marketplace][marketplace badge]][marketplace] &nbsp;
+[![gpg on keybase.io][keybase badge]][keybase] &nbsp;
+[![GitHub release][release badge]][latest release] &nbsp;
+[![package.json deps][npm dep badge]][eclint npm] &nbsp;
 [![GitHub][LICENSE badge]][LICENSE]
 
 </div>
@@ -52,8 +52,8 @@ unprotected branch on behalf of the user, if given permission.
 
 <div align="center">
 
-[![star badge][star badge]][star] |
-[![zbeekman gh profile][gh follow]][gh profile] |
+[![star badge][star badge]][star] &nbsp;
+[![zbeekman gh profile][gh follow]][gh profile] &nbsp;
 [![zbeekman on twitter][twitter badge]][twitter]
 
 </div>
