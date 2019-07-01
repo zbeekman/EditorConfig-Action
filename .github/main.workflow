@@ -3,18 +3,21 @@ workflow "EditorConfig Audit" {
   on = "push"
 }
 
-workflow "EditorConfig PR Audit" {
-  resolves = ["EditorConfig-Action"]
-  on = "pull_request"
-}
-
 action "EditorConfig-Action" {
   uses = "./"
-  secrets = ["GITHUB_TOKEN"]
   env = {
     EC_FIX_ERRORS = "false" # not yet implemented
     ALWAYS_LINT_ALL_FILES = "true"
   }
+}
+
+workflow "EditorConfig PR" {
+  resolves = ["EditorConfig Audit PR"]
+  on = "pull_request"
+}
+
+action "EditorConfig Audit PR" {
+  uses = "./"
 }
 
 workflow "ShellCheck Linting" {
