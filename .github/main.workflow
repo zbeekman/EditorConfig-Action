@@ -18,7 +18,7 @@ workflow "ShellCheck Linting" {
 }
 
 action "ShellCheck-Lint-Action" {
-  uses = "zbeekman/ShellCheck-Lint-Action@v1.0.1"
+  uses = "zbeekman/ShellCheck-Lint-Action@master"
   env = {
     ALWAYS_LINT_ALL_FILES = "true" # current default
   }
