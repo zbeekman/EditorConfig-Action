@@ -55,7 +55,7 @@ passECLint() {
 
 lintAllFiles() {
   echo "Checking files for EditorConfig style violations"
-  if [[ "${GITHUB_EVENT_TYPE}" = pull_request ]] ; then
+  if [[ "${GITHUB_EVENT_NAME}" = pull_request ]] ; then
     echo "Current git status:"
     git status
     echo "Testing Pull Request. Attempting checkout of PR branch..."
@@ -123,7 +123,7 @@ configureGit
 echo "Looking for .editorconfig file in current directory or parents..."
 findInCwdOrParent .editorconfig
 
-if [[ "${GITHUB_EVENT_TYPE}" = pull_request ]] ; then
+if [[ "${GITHUB_EVENT_NAME}" = pull_request ]] ; then
   echo "Determining HEAD and BASE commit SHAs in current pull request..."
   getPullRequestCommitInfo
 else
