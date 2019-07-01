@@ -58,7 +58,7 @@ lintAllFiles() {
   if [[ "${GITHUB_EVENT_NAME}" = pull_request ]] ; then
     echo "Current git status:"
     git status
-     echo "Testing Pull Request. Attempting checkout of PR branch..."
+    echo "Testing Pull Request. Attempting checkout of PR branch..."
     git fetch origin "${FULL_PR_REF}" || true
     if git checkout "${PULL_REF}" ; then
       echo "Checkout of ${PULL_REF} succeeded."
