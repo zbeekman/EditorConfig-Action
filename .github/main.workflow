@@ -18,6 +18,9 @@ workflow "EditorConfig PR" {
 
 action "EditorConfig Audit PR" {
   uses = "./"
+  env = {
+    ALWAYS_LINT_ALL_FILES = "false"
+  }
 }
 
 workflow "ShellCheck Linting" {

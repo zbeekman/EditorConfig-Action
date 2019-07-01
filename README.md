@@ -52,7 +52,7 @@ following workflow:
 
 ```workflow
 workflow "EditorConfig Audit" {
-  on = "push"
+  on = "pull_request"
   resolves = ["EditorConfig-Action"]
 }
 
@@ -76,7 +76,7 @@ Features currently in development or being considered for addition include:
 
   - [x] Check only files touched by commits included in the current push
   - [x] Always check all files
-  - [ ] Pull Request linting (lint all files in pull request) and provide PR status
+  - [x] Pull Request linting (lint all files in pull request) and provide PR status
   - [ ] Automatically apply fixes using `eclint fix`
   - [ ] Ability to pass search patterns to `git ls-files` for enumerating files to check
   - [ ] Ability to override project `.editorconfig` or use without an `.editorconfig` via `eclint`'s property override
