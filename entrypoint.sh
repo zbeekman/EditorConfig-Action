@@ -1,4 +1,14 @@
 #!/bin/bash
+#
+# Copyright 2019 Izaak Beekman
+#
+# This file is part of EditorConfig-Action, a "GitHub Action" available on the
+# GitHub Marketplace.
+#
+# This project is licensed under the MIT license. Please see the accompanying
+# `LICENSE` file for details.
+#
+
 
 set -o errexit
 set -o nounset
