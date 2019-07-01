@@ -8,7 +8,7 @@ action "EditorConfig-Action" {
   #  secrets = ["GITHUB_TOKEN"] # WIll be needed for fixing errors
   env = {
     EC_FIX_ERRORS = "false" # not yet implemented
-    ALWAYS_LINT_ALL_FILES = "false"
+    ALWAYS_LINT_ALL_FILES = "true"
   }
 }
 
