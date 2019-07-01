@@ -1,4 +1,14 @@
 #!/bin/bash
+#
+# Copyright 2019 Izaak Beekman
+#
+# This file is part of EditorConfig-Action, a "GitHub Action" available on the
+# GitHub Marketplace.
+#
+# This project is licensed under the MIT license. Please see the accompanying
+# `LICENSE` file for details.
+#
+
 
 set -o errexit
 set -o nounset
@@ -62,11 +72,12 @@ lintAllFiles() {
     git fetch origin "${FULL_PR_REF}" || true
     if git checkout "${PULL_REF}" ; then
       echo "Checkout of ${PULL_REF} succeeded."
-      git status
-      git branch
     else
-      echo "Checkout of ${FULL_PR_REF} from origin failed... attempting to continue anyway."
+      echo "Checkout of ${PULL_REF} from origin failed... attempting to continue anyway."
     fi
+    git status
+    git branch
+    git show-ref
   fi
   # shellcheck disable=SC2046
   if env eclint check $(git ls-files) ; then
@@ -115,10 +126,7 @@ getChangedFiles() {
     exit 78
   fi
   if [[ "${GITHUB_EVENT_NAME}" = pull_request ]]; then
-    echo "The following files have been touched by this pull request:"
-    for f in "${CHANGED_FILES[@]}"; do
-      echo "  - ${f}"
-    done
+    echo "${#CHANGED_FILES[@]} have been touched by this pull request:"
   fi
 }
 
@@ -146,7 +154,7 @@ elif [ ${#CHANGED_FILES[@]} -gt 0 ]; then
   echo ""
   echo "Checking the following changed files for EditorConfig style violations:"
   for f in "${CHANGED_FILES[@]}"; do
-    echo "    $f"
+    echo "  - $f"
   done
   echo ""
   if env eclint check "${CHANGED_FILES[@]}" ; then
