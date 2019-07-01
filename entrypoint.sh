@@ -115,10 +115,7 @@ getChangedFiles() {
     exit 78
   fi
   if [[ "${GITHUB_EVENT_NAME}" = pull_request ]]; then
-    echo "The following files have been touched by this pull request:"
-    for f in "${CHANGED_FILES[@]}"; do
-      echo "  - ${f}"
-    done
+    echo "${#CHANGED_FILES[@]} have been touched by this pull request:"
   fi
 }
 
@@ -143,6 +140,12 @@ getChangedFiles
 if [[ "${ALWAYS_LINT_ALL_FILES:-false}" = [Tt]rue ]]; then
   lintAllFiles
 elif [ ${#CHANGED_FILES[@]} -gt 0 ]; then
+  echo ""
+  echo "Checking the following changed files for EditorConfig style violations:"
+  for f in "${CHANGED_FILES[@]}"; do
+    echo "  - $f"
+  done
+  echo ""
   if env eclint check "${CHANGED_FILES[@]}" ; then
     passECLint
   else
