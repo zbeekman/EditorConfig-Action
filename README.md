@@ -73,7 +73,8 @@ Badges and local links
 [LICENSE]: https://github.com/zbeekman/EditorConfig-Action/blob/master/LICENSE
 [release badge]: https://img.shields.io/github/release/zbeekman/EditorConfig-Action.svg
 [latest release]: https://github.com/zbeekman/EditorConfig-Action/releases/latest
-[npm dep badge]: https://img.shields.io/github/package-json/dependency-version/zbeekman/EditorConfig-Action/eclint.svg
+[npm dep badge]:
+https://img.shields.io/github/package-json/dependency-version/zbeekman/EditorConfig-Action/eclint.svg
 [eclint npm]: https://www.npmjs.com/package/eclint
 [keybase badge]: https://img.shields.io/keybase/pgp/zbeekman.svg
 [keybase]: https://keybase.io/zbeekman
