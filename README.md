@@ -128,8 +128,7 @@ Features currently in development or being considered for addition include:
 [@zbeekman]: https://github.com/zbeekman
 [under an MIT license]: https://github.com/jedmao/eclint/blob/master/LICENSE
 [`.editorconfig`]: https://github.com/zbeekman/EditorConfig-Action/blob/master/.editorconfig
-
-   [ShellCheck-Linter-Action]: https://github.com/marketplace/actions/shellcheck-linter-action
+[ShellCheck-Linter-Action]: https://github.com/marketplace/actions/shellcheck-linter-action
 
 <!--
 Badges and local links
