@@ -41,7 +41,7 @@ getPullRequestCommitInfo() {
   PULL_REF="$(getEventByPath '.pull_request.head.ref')"
   FULL_PR_REF="pull/${PULL_ID}/head:${PULL_REF}"
   echo "Fetching commits from PR at ${FULL_PR_REF}."
-  git fetch origin "${FULL_PR_REF}"
+  git fetch origin "${FULL_PR_REF}" || true
 }
 
 failECLint() {
@@ -59,7 +59,7 @@ lintAllFiles() {
     echo "Current git status:"
     git status
     echo "Testing Pull Request. Attempting checkout of PR branch..."
-    git fetch origin "${FULL_PR_REF}"
+    git fetch origin "${FULL_PR_REF}" || true
     if git checkout "${PULL_REF}" ; then
       echo "Checkout of ${PULL_REF} succeeded."
       git status
@@ -113,6 +113,12 @@ getChangedFiles() {
   else
     echo "Unknown error: Can't determine changed files from Git!" >&2
     exit 78
+  fi
+  if [[ "${GITHUB_EVENT_NAME}" = pull_request ]]; then
+    echo "The following files have been touched by this pull request:"
+    for f in "${CHANGED_FILES[@]}"; do
+      echo "  - ${f}"
+    done
   fi
 }
 
