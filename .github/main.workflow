@@ -14,11 +14,11 @@ action "EditorConfig-Action" {
 
 workflow "ShellCheck Linting" {
   on = "push"
-  resolves = ["ShellCheck-Lint-Action"]
+  resolves = ["ShellCheck-Linter-Action"]
 }
 
-action "ShellCheck-Lint-Action" {
-  uses = "zbeekman/ShellCheck-Lint-Action@master"
+action "ShellCheck-Linter-Action" {
+  uses = "zbeekman/ShellCheck-Linter-Action@master"
   env = {
     ALWAYS_LINT_ALL_FILES = "true" # current default
   }
