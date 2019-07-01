@@ -148,5 +148,5 @@ https://img.shields.io/github/package-json/dependency-version/zbeekman/EditorCon
 [twitter]: https://twitter.com/intent/follow?screen_name=zbeekman
 [star badge]: https://img.shields.io/github/stars/zbeekman/EditorConfig-Action.svg?style=social
 [star]: https://github.com/zbeekman/EditorConfig-Action
-[gh follow]: https://img.shields.io/github/followers/zbeekman.svg?style=social
+ [gh follow]: https://img.shields.io/github/followers/zbeekman.svg?style=social
 [gh profile]: https://github.com/zbeekman
