@@ -58,11 +58,23 @@ getPullRequestCommitInfo() {
       ;;
     *)
       echo "Nothing to be done for PR"
-         exit 78
+      exit 78
       ;;
   esac
   echo "Fetching commits from PR at ${FULL_PR_REF}."
   git fetch origin "${FULL_PR_REF}" || true
+  echo "Current git status:"
+  git status
+  echo "Testing Pull Request. Attempting checkout of PR branch..."
+  git fetch origin "${FULL_PR_REF}" || true
+  if git checkout "${PULL_REF}" ; then
+    echo "Checkout of ${PULL_REF} succeeded."
+  else
+    echo "Checkout of ${PULL_REF} from origin failed... attempting to continue anyway."
+  fi
+  git status
+  git branch
+  git show-ref
 }
 
 failECLint() {
@@ -76,20 +88,6 @@ passECLint() {
 
 lintAllFiles() {
   echo "Checking files for EditorConfig style violations"
-  if [[ "${GITHUB_EVENT_NAME}" = pull_request ]] ; then
-    echo "Current git status:"
-    git status
-    echo "Testing Pull Request. Attempting checkout of PR branch..."
-    git fetch origin "${FULL_PR_REF}" || true
-    if git checkout "${PULL_REF}" ; then
-      echo "Checkout of ${PULL_REF} succeeded."
-    else
-      echo "Checkout of ${PULL_REF} from origin failed... attempting to continue anyway."
-    fi
-    git status
-    git branch
-    git show-ref
-  fi
   # shellcheck disable=SC2046
   if env eclint check $(git ls-files) ; then
     passECLint
@@ -137,7 +135,7 @@ getChangedFiles() {
     exit 78
   fi
   if [[ "${GITHUB_EVENT_NAME}" = pull_request ]]; then
-    echo "${#CHANGED_FILES[@]} have been touched by this pull request:"
+    echo "${#CHANGED_FILES[@]} files have been touched by this pull request:"
   fi
 }
 
