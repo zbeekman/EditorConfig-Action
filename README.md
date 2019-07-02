@@ -83,6 +83,9 @@ If you omit the  `ALWAYS_LINT_ALL_FILES` variable or it is set to `false` then o
 the pushed commits will be linted. If you explicitly set this to `true` then every file in the
 repository will be checked. Depending on the size of the repository, this may be a bad idea.
 
+For protected branches, it is best to set the required action to be the one created with the `on = "pull_request"`,
+e.g., `"EC Audit Push"` above, since PRs from forks will not trigger a local push event.
+
 ## Features and Planed Features
 
 Features currently in development or being considered for addition include:
