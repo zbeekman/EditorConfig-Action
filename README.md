@@ -13,7 +13,7 @@
 :mag_right: A GitHub Action to check, enforce & fix [EditorConfig] style violations
 
 <div align="center">
-  <table width="100%" height="100%" align="center" valign="center">
+  <table border="0" width="100%" height="100%" align="center" valign="center">
     <tr>
       <td><img src="https://raw.githubusercontent.com/zbeekman/EditorConfig-Action/add-images/assets/ocdb.gif"
         alt="blinking octocat" /></td>
