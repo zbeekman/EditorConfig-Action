@@ -12,6 +12,19 @@
 
 :mag_right: A GitHub Action to check, enforce & fix [EditorConfig] style violations
 
+<div>
+  <table width="100%" height="100%" align="center" valign="center">
+    <tr>
+      <td><img src="https://raw.githubusercontent.com/zbeekman/EditorConfig-Action/add-images/assets/ocdb.gif"
+        alt="blinking octocat" /></td>
+      <td><img src="https://raw.githubusercontent.com/zbeekman/EditorConfig-Action/add-images/assets/sqhr.png"
+        alt="squar-heart" /></td>
+      <td><img src="https://raw.githubusercontent.com/zbeekman/EditorConfig-Action/add-images/assets/ecl.png"
+        alt="EditorConfig logo" /></td>
+    </tr>
+  </table>
+</div>
+
 <details><summary><b>Table of Contents</b></summary>
 <p>
 
