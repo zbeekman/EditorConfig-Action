@@ -58,7 +58,7 @@ getPullRequestCommitInfo() {
       ;;
     *)
       echo "Nothing to be done for PR"
-      exit 78
+         exit 78
       ;;
   esac
   echo "Fetching commits from PR at ${FULL_PR_REF}."
