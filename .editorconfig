@@ -3,7 +3,7 @@
 # top-most EditorConfig file
 root = true
 
-[*]
+[{*.sh,*.yml,*.md,*.json,Dockerfile}]
 indent_style = space
 indent_size = 2
 trim_trailing_whitespace = true
