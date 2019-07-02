@@ -40,7 +40,7 @@ getPushedCommitInfo() {
   DELETED="$(getEventByPath '.deleted')"
   HEAD_COMMIT="$GITHUB_SHA"
   BASE_COMMIT="$(getEventByPath '.before')"
-   }
+}
 
 getPullRequestCommitInfo() {
   echo "Getting info about commits in pull request..."
