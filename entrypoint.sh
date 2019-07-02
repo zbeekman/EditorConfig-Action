@@ -48,8 +48,19 @@ getPullRequestCommitInfo() {
   HEAD_COMMIT="$(getEventByPath '.pull_request.head.sha')"
   BASE_COMMIT="$(getEventByPath '.pull_request.base.sha')"
   PULL_ID="$(getEventByPath '.pull_request.number')"
+  PR_ACTION="$(getEventByPath '.action')"
   PULL_REF="$(getEventByPath '.pull_request.head.ref')"
   FULL_PR_REF="pull/${PULL_ID}/head:${PULL_REF}"
+  echo "PR_ACTION: ${PR_ACTION}"
+  case "${PR_ACTION}" in
+    opened | reopened | ready_for_review | synchronize)
+      true # noop
+      ;;
+    *)
+      echo "Nothing to be done for PR"
+      exit 78
+      ;;
+  esac
   echo "Fetching commits from PR at ${FULL_PR_REF}."
   git fetch origin "${FULL_PR_REF}" || true
 }
