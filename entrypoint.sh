@@ -139,7 +139,9 @@ getChangedFiles() {
   fi
 }
 
+##############################
 # Start main
+##############################
 echo "eclint version: $(eclint --version)"
 configureGit
 
