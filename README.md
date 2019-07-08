@@ -16,7 +16,7 @@
 
   [![blinking octocat][Blinky]][marketplace]
   ![squar-heart][sq heart]
-  [![EditorConfig logo][EC logo]][Editor Config]
+  [![EditorConfig logo][EC logo]][EditorConfig]
 
 </div>
 
