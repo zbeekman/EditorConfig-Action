@@ -8,10 +8,36 @@ update_configs:
     default_labels:
       - "npm"
       - "version bump"
-  # Keep Dockerfile up to date, batching pull requests weekly
+    commit_message:
+      prefix: "Update"
+      include_scope: true
+    allowed_updates:
+      - match:
+          update_type: "all"
+          dependency_name: "eclint"
+      - match:
+          dependency_type: "all"
+          update_type: "security"
+    automerged_updates:
+      - match:
+          dependency_name: "eclint"
+          update_type: "all"
+      - match:
+          dependency_type: "all"
+          update_type: "security:patch"
+    version_requirement_updates: "increase_versions"
+
+# Keep Dockerfile up to date, batching pull requests weekly
   - package_manager: "docker"
     directory: "/"
     update_schedule: "daily"
     default_labels:
       - "Docker"
       - "version bump"
+    commit_message:
+      prefix: "Update"
+      include_scope: true
+    automerged_updates:
+      - match:
+          dependency_type: "all"
+          update_type: "all"
