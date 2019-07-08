@@ -14,9 +14,9 @@
 
 <div align="center">
 
-  ![blinking octocat][Blinky]
+  [![blinking octocat][Blinky]][marketplace]
   ![squar-heart][sq heart]
-  ![EditorConfig logo][EC logo]
+  [![EditorConfig logo][EC logo]][Editor Config]
 
 </div>
 
@@ -24,13 +24,16 @@
 <p>
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
 
-  - [What is EditorConfig?](#what-is-editorconfig)
-  - [Example Workflows](#example-workflows)
-    - [Check Conformance of Pushed Commits with `.editorconfig`](#check-conformance-of-pushed-commits-with-editorconfig)
-  - [Features and Planed Features](#features-and-planed-features)
-  - [EditorConfig Resources](#editorconfig-resources)
-  - [Other GitHub Actions from @zbeekman](#other-github-actions-from-zbeekman)
+- [EditorConfig-Action](#editorconfig-action)
+    - [What is EditorConfig?](#what-is-editorconfig)
+    - [Using EditorConfig-Action with Your Project](#using-editorconfig-action-with-your-project)
+    - [Example Workflows](#example-workflows)
+        - [Check Conformance of Pushed Commits with `.editorconfig`](#check-conformance-of-pushed-commits-with-editorconfig)
+    - [Features and Planed Features](#features-and-planed-features)
+    - [EditorConfig Resources](#editorconfig-resources)
+    - [Other GitHub Actions from @zbeekman](#other-github-actions-from-zbeekman)
 
 <!-- markdown-toc end -->
 
@@ -50,6 +53,13 @@ should define your own `.editorconfig`.
 
 This project uses [eclint] by Jed Mao ([@jedmao]) to lint your project. [eclint] is also
 released [under an MIT license].
+
+## Using EditorConfig-Action with Your Project
+
+Visit the [EditorConfig-Action GitHub Marketplace page][marketplace] to get started. Use a tagged release or the master
+version of this GitHub action by creating your own `.github/main.workflow` file and adding a `on = "push"` and/or
+`on = "pull_request"` `workflow` that `resolves` an `action` `uses = zbeekman/EditorConfig-Action[@ref]`.
+Please see [the GitHub Actions documentation] for additional information.
 
 ## Example Workflows
 
@@ -140,6 +150,7 @@ Features currently in development or being considered for addition include:
 [under an MIT license]: https://github.com/jedmao/eclint/blob/master/LICENSE
 [`.editorconfig`]: https://github.com/zbeekman/EditorConfig-Action/blob/master/.editorconfig
 [ShellCheck-Linter-Action]: https://github.com/marketplace/actions/shellcheck-linter-action
+[GitHub Actions documentation]: https://developer.github.com/actions/
 
 <!--
 Artwork & Images
