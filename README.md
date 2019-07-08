@@ -13,18 +13,11 @@
 :mag_right: A GitHub Action to check, enforce & fix [EditorConfig] style violations
 
 <div align="center">
-  <table border="0" width="100%" height="100%" align="center" valign="center">
-    <tr align="center">
-      <td width="25%"></td>
-      <td><img src="https://raw.githubusercontent.com/zbeekman/EditorConfig-Action/add-images/assets/ocdb.gif"
-        alt="blinking octocat" /></td>
-      <td><img src="https://raw.githubusercontent.com/zbeekman/EditorConfig-Action/add-images/assets/sqhr.png"
-        alt="squar-heart" /></td>
-      <td><img src="https://raw.githubusercontent.com/zbeekman/EditorConfig-Action/add-images/assets/ecl.png"
-        alt="EditorConfig logo" /></td>
-      <td width="25%"></td>
-    </tr>
-  </table>
+
+  ![blinking octocat][Blinky]
+  ![squar-heart][sq heart]
+  ![EditorConfig logo][EC logo]
+
 </div>
 
 <details><summary><b>Table of Contents</b></summary>
@@ -147,6 +140,13 @@ Features currently in development or being considered for addition include:
 [under an MIT license]: https://github.com/jedmao/eclint/blob/master/LICENSE
 [`.editorconfig`]: https://github.com/zbeekman/EditorConfig-Action/blob/master/.editorconfig
 [ShellCheck-Linter-Action]: https://github.com/marketplace/actions/shellcheck-linter-action
+
+<!--
+Artwork & Images
+-->
+[Blinky]: https://github.com/zbeekman/EditorConfig-Action/raw/master/assets/ocdb.gif
+[sq heart]: https://github.com/zbeekman/EditorConfig-Action/raw/master/assets/sqhr.png
+[EC logo]: https://github.com/zbeekman/EditorConfig-Action/raw/master/assets/ecl.png
 
 <!--
 Badges and local links
