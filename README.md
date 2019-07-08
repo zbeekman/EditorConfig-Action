@@ -27,13 +27,13 @@
 **Table of Contents**
 
 - [EditorConfig-Action](#editorconfig-action)
-    - [What is EditorConfig?](#what-is-editorconfig)
-    - [Using EditorConfig-Action with Your Project](#using-editorconfig-action-with-your-project)
-    - [Example Workflows](#example-workflows)
-        - [Check Conformance of Pushed Commits with `.editorconfig`](#check-conformance-of-pushed-commits-with-editorconfig)
-    - [Features and Planed Features](#features-and-planed-features)
-    - [EditorConfig Resources](#editorconfig-resources)
-    - [Other GitHub Actions from @zbeekman](#other-github-actions-from-zbeekman)
+  - [What is EditorConfig?](#what-is-editorconfig)
+  - [Using EditorConfig-Action with Your Project](#using-editorconfig-action-with-your-project)
+  - [Example Workflows](#example-workflows)
+    - [Check Conformance of Pushed Commits with `.editorconfig`](#check-conformance-of-pushed-commits-with-editorconfig)
+  - [Features and Planed Features](#features-and-planed-features)
+  - [EditorConfig Resources](#editorconfig-resources)
+  - [Other GitHub Actions from @zbeekman](#other-github-actions-from-zbeekman)
 
 <!-- markdown-toc end -->
 
