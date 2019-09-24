@@ -13,7 +13,6 @@ RUN apk add --no-cache bash git jq ca-certificates
 COPY package.json package-lock.json ./
 RUN npm install --no-save . && \
 	ln -s $(npm bin)/eclint /usr/local/bin && \
-	npm audit && \
 	echo "eclint version: $(eclint --version)"
 
 COPY entrypoint.sh /entrypoint.sh
