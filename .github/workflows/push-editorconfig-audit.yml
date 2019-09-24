@@ -1,0 +1,13 @@
+on: push
+name: EditorConfig Audit
+jobs:
+  editorConfig-Action:
+    name: EditorConfig-Action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: EditorConfig-Action
+      uses: ./
+      env:
+        ALWAYS_LINT_ALL_FILES: "true"
+        EC_FIX_ERRORS: "false"

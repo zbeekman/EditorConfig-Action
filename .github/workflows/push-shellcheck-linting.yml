@@ -1,0 +1,12 @@
+on: push
+name: ShellCheck Linting
+jobs:
+  shellCheck-Linter-Action:
+    name: ShellCheck-Linter-Action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: ShellCheck-Linter-Action
+      uses: zbeekman/ShellCheck-Linter-Action@master
+      env:
+        ALWAYS_LINT_ALL_FILES: "true"

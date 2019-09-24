@@ -1,0 +1,12 @@
+on: pull_request
+name: EditorConfig PR
+jobs:
+  editorConfigAuditPR:
+    name: EditorConfig Audit PR
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: EditorConfig Audit PR
+      uses: ./
+      env:
+        ALWAYS_LINT_ALL_FILES: "false"
