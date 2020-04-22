@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:14-alpine
 
 LABEL "com.github.actions.name"="EditorConfig-Action"
 LABEL "com.github.actions.description"="Check and/or fix pushed files against `.editorconfig` style specification"
