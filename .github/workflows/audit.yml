@@ -1,0 +1,18 @@
+name: Audit
+
+on: [push]
+
+jobs:
+  audit:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout VCS
+        uses: actions/checkout@v1
+
+      - name: EditorConfig Audit
+        uses: ./
+        env:
+          EC_FIX_ERRORS: false # not yet implemented
+          ALWAYS_LINT_ALL_FILES: true

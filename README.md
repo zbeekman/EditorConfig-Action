@@ -57,8 +57,7 @@ released [under an MIT license].
 ## Using EditorConfig-Action with Your Project
 
 Visit the [EditorConfig-Action GitHub Marketplace page][marketplace] to get started. Use a tagged release or the master
-version of this GitHub action by creating your own `.github/main.workflow` file and adding a `on = "push"` and/or
-`on = "pull_request"` `workflow` that `resolves` an `action` `uses = zbeekman/EditorConfig-Action[@ref]`.
+version of this GitHub action by creating your own workflow file.
 Please see [the GitHub Actions documentation] for additional information.
 
 ## Example Workflows
@@ -68,41 +67,20 @@ Please see [the GitHub Actions documentation] for additional information.
 To ensure your repository does not violate your project's [`.editorconfig`] file, you may use the
 following workflow:
 
-```workflow
-workflow "PR Audit" {
-  on = "pull_request"
-  resolves = ["EC Audit PR"]
-}
-
-action "EC Audit PR" {
-  uses = "zbeekman/EditorConfig-Action@v1.1.0"
-  # secrets = ["GITHUB_TOKEN"] # Will be needed for fixing errors
-  env = {
-    ALWAYS_LINT_ALL_FILES = "false" # This is the default
-  }
-}
-
-workflow "Push Audit" {
-  on = "push"
-  resolves = ["EC Audit Push"]
-}
-
-action "EC Audit Push" {
-  uses = "zbeekman/EditorConfig-Action@v1.1.0"
-  # secrets = ["GITHUB_TOKEN"] # Will be needed for fixing errors
-  env = {
-    EC_FIX_ERROR = "false" # not yet implemented
-    ALWAYS_LINT_ALL_FILES = "true" # Might be slow for large repos
-  }
-}
+```yml
+- name: EditorConfig Audit
+  uses: ./
+  env:
+    EC_FIX_ERRORS: false # not yet implemented
+    ALWAYS_LINT_ALL_FILES: true
 ```
 
 If you omit the  `ALWAYS_LINT_ALL_FILES` variable or it is set to `false` then only files changed in
 the pushed commits will be linted. If you explicitly set this to `true` then every file in the
 repository will be checked. Depending on the size of the repository, this may be a bad idea.
 
-For protected branches, it is best to set the required action to be the one created with the `on = "pull_request"`,
-e.g., `"EC Audit Push"` above, since PRs from forks will not trigger a local push event.
+For protected branches, it is best to set the required action to be the one created with the `on: [pull_request]`,
+since PRs from forks will not trigger a local push event.
 
 ## Features and Planed Features
 

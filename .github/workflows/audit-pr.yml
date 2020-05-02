@@ -1,0 +1,17 @@
+name: Audit PR
+
+on: [pull_request]
+
+jobs:
+  audit-pr:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout VCS
+        uses: actions/checkout@v1
+
+      - name: EditorConfig Audit PR
+        uses: ./
+        env:
+          ALWAYS_LINT_ALL_FILES: false
