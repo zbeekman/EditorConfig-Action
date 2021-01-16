@@ -21,7 +21,7 @@ findInCwdOrParent() {
     echo "No $1 file found in ${_currdir} or parents!" >&2
     exit 78
   else
-    (cd .. && findconfig "$1")
+    (cd .. && findInCwdOrParent "$1")
   fi
 }
 
