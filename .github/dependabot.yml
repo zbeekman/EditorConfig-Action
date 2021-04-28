@@ -1,0 +1,34 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "09:00"
+  open-pull-requests-limit: 10
+  labels:
+  - npm
+  - version bump
+  versioning-strategy: increase
+  allow:
+  - dependency-name: eclint
+  ignore:
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+    - 4.0.2
+  commit-message:
+    prefix: Update
+    include: scope
+- package-ecosystem: docker
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "09:00"
+  open-pull-requests-limit: 10
+  labels:
+  - Docker
+  - version bump
+  commit-message:
+    prefix: Update
+    include: scope
