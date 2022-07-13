@@ -28,7 +28,7 @@ findInCwdOrParent() {
 configureGit() {
   # This should be the default but it's important that it's set correctly
   git config --global core.quotePath true
-  git config --global --add safe.directory "$GITHUB_WORKSPACE"
+  # git config --global --add safe.directory "$GITHUB_WORKSPACE"
 }
 
 getEventByPath() {
