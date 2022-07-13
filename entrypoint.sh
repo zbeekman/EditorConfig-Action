@@ -28,6 +28,8 @@ findInCwdOrParent() {
 configureGit() {
   # This should be the default but it's important that it's set correctly
   git config --global core.quotePath true
+  # Prevents unsafe repo error on pull request
+  git config --global --add safe.directory "$GITHUB_WORKSPACE"
 }
 
 getEventByPath() {
