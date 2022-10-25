@@ -28,6 +28,11 @@ findInCwdOrParent() {
 configureGit() {
   # This should be the default but it's important that it's set correctly
   git config --global core.quotePath true
+  
+  if [[ "${ADD_SAFE_DIRECTORY:-false}" = [Tt]rue ]]; then
+    # This prevents errors due to different file ownership from outside the container
+    git config --global --add safe.directory $PWD
+  fi
 }
 
 getEventByPath() {
