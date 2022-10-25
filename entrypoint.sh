@@ -145,6 +145,11 @@ getChangedFiles() {
 echo "eclint version: $(eclint --version)"
 configureGit
 
+if [ -n "${REPOSITORY_PATH+set}" ]; then
+  echo "Changing directory to $REPOSITORY_PATH"
+  cd "$REPOSITORY_PATH"
+fi
+
 echo "Looking for .editorconfig file in current directory or parents..."
 findInCwdOrParent .editorconfig
 
