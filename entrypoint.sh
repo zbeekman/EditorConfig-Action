@@ -28,6 +28,11 @@ findInCwdOrParent() {
 configureGit() {
   # This should be the default but it's important that it's set correctly
   git config --global core.quotePath true
+  
+  if [[ "${ADD_SAFE_DIRECTORY:-false}" = [Tt]rue ]]; then
+    # This prevents errors due to different file ownership from outside the container
+    git config --global --add safe.directory $PWD
+  fi
 }
 
 getEventByPath() {
@@ -121,7 +126,7 @@ getChangedFiles() {
       else
         echo "File \`$line\` was moved or deleted."
       fi
-    done < <(git diff --name-only "${HEAD_COMMIT}..${BASE_COMMIT}")
+    done < <(git diff --name-only --relative "${HEAD_COMMIT}..${BASE_COMMIT}" -- .)
   elif $have_last && $have_commits ; then
     echo "Missing starting commit, new repo?"
     # We know that core.quotePath is true
@@ -144,6 +149,11 @@ getChangedFiles() {
 ##############################
 echo "eclint version: $(eclint --version)"
 configureGit
+
+if [ -n "${REPOSITORY_PATH+set}" ]; then
+  echo "Changing directory to $REPOSITORY_PATH"
+  cd "$REPOSITORY_PATH"
+fi
 
 echo "Looking for .editorconfig file in current directory or parents..."
 findInCwdOrParent .editorconfig
