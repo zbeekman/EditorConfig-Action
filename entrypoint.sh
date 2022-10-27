@@ -126,7 +126,7 @@ getChangedFiles() {
       else
         echo "File \`$line\` was moved or deleted."
       fi
-    done < <(git diff --name-only "${HEAD_COMMIT}..${BASE_COMMIT}")
+    done < <(git diff --name-only --relative "${HEAD_COMMIT}..${BASE_COMMIT}" -- .)
   elif $have_last && $have_commits ; then
     echo "Missing starting commit, new repo?"
     # We know that core.quotePath is true
