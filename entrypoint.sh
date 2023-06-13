@@ -78,7 +78,7 @@ getPullRequestCommitInfo() {
 }
 
 failECLint() {
-  echo "EditorConfig tyle violations found!" >&2
+  echo "EditorConfig style violations found!" >&2
   exit 1
 }
 passECLint() {
